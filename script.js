@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     $(window).scroll(function(){
         // sticky navbar on scroll script
         if(this.scrollY > 20){
@@ -70,4 +71,12 @@ $(document).ready(function(){
             }
         }
     });
+
+
+    // preloader script of home page
+    window.onload = function(){
+        $('.preloader').fadeOut(1500);
+    }
 });
+
+
