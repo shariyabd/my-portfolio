@@ -27,7 +27,8 @@
 
   var saved = localStorage.getItem("theme");
   if (saved) { setTheme(saved); }
-  else if (window.matchMedia("(prefers-color-scheme: light)").matches) { setTheme("light"); }
+  else if (window.matchMedia("(prefers-color-scheme: dark)").matches) { setTheme("dark"); }
+  else { setTheme("light"); }
 
   if (themeBtn) {
     themeBtn.addEventListener("click", function () {
