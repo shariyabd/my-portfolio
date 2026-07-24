@@ -1,12 +1,42 @@
 /* =========================================================
-   Mohammad Shariya — portfolio interactions (vanilla, no deps)
+   Mohammad Shariya — Portfolio Interactions
+   Dark mode, typing, reveals, scroll-to-top, nav
    ========================================================= */
 (function () {
   "use strict";
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------------------- mobile nav ---------------------- */
+  /* ---------------------- Theme Toggle ---------------------- */
+  var html = document.documentElement;
+  var themeBtn = document.getElementById("theme-toggle");
+  var iconSun = themeBtn ? themeBtn.querySelector(".icon-sun") : null;
+  var iconMoon = themeBtn ? themeBtn.querySelector(".icon-moon") : null;
+
+  function setTheme(theme) {
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    if (iconSun && iconMoon) {
+      iconSun.style.display = theme === "dark" ? "block" : "none";
+      iconMoon.style.display = theme === "light" ? "block" : "none";
+    }
+    // Update theme-color meta
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", theme === "dark" ? "#09090b" : "#fafafa");
+  }
+
+  var saved = localStorage.getItem("theme");
+  if (saved) { setTheme(saved); }
+  else if (window.matchMedia("(prefers-color-scheme: light)").matches) { setTheme("light"); }
+
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var current = html.getAttribute("data-theme") || "dark";
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+  }
+
+  /* ---------------------- Mobile Nav ---------------------- */
   var nav = document.querySelector(".nav");
   var toggle = document.querySelector(".nav__toggle");
   if (toggle && nav) {
@@ -22,12 +52,34 @@
     });
   }
 
-  /* -------------------- rotating role --------------------- */
+  /* ---------------------- Active Nav Link ---------------------- */
+  var sections = document.querySelectorAll("section[id]");
+  var navLinks = document.querySelectorAll(".nav__links a");
+
+  function updateActiveNav() {
+    var scrollY = window.scrollY + 100;
+    sections.forEach(function (section) {
+      var top = section.offsetTop;
+      var height = section.offsetHeight;
+      var id = section.getAttribute("id");
+      if (scrollY >= top && scrollY < top + height) {
+        navLinks.forEach(function (link) {
+          link.style.color = "";
+          if (link.getAttribute("href") === "#" + id) {
+            link.style.color = "var(--accent)";
+          }
+        });
+      }
+    });
+  }
+  window.addEventListener("scroll", updateActiveNav, { passive: true });
+
+  /* ---------------------- Typing Effect ---------------------- */
   var roles = [
     "Agentic Software Engineer.",
-    "RAG & LLM engineer.",
-    "Laravel backend engineer.",
-    "AI automation builder."
+    "RAG & LLM Engineer.",
+    "Laravel Backend Engineer.",
+    "AI Automation Builder."
   ];
   var typingEl = document.querySelector(".typing");
   if (typingEl) {
@@ -38,30 +90,29 @@
       (function tick() {
         var word = roles[r];
         typingEl.textContent = word.slice(0, c);
-        if (!deleting && c < word.length) {
-          c++;
-        } else if (!deleting && c === word.length) {
-          deleting = true;
-          return setTimeout(tick, 1600);
-        } else if (deleting && c > 0) {
-          c--;
-        } else {
-          deleting = false;
-          r = (r + 1) % roles.length;
-        }
-        setTimeout(tick, deleting ? 34 : 62);
+        if (!deleting && c < word.length) { c++; }
+        else if (!deleting && c === word.length) { deleting = true; return setTimeout(tick, 1800); }
+        else if (deleting && c > 0) { c--; }
+        else { deleting = false; r = (r + 1) % roles.length; }
+        setTimeout(tick, deleting ? 30 : 55);
       })();
     }
   }
 
-  /* ------------------ scroll reveal ----------------------- */
+  /* ---------------------- Scroll Reveal ---------------------- */
   var revealTargets = document.querySelectorAll(
-    ".section-title, .lead, .tl, .proj, .skillset, .about__body p, .about__portrait, .contact__title, .link-row"
+    ".section__title, .section__subtitle, .lead, .tl, .proj, .skillset, " +
+    ".about__body p, .about__portrait, .contact__title, .link-row, " +
+    ".edu-card, .achievement, .cert, .hero__content, .hero__visual"
   );
+
   if (reduceMotion || !("IntersectionObserver" in window)) {
     revealTargets.forEach(function (el) { el.classList.add("in"); });
   } else {
-    revealTargets.forEach(function (el) { el.classList.add("reveal"); });
+    revealTargets.forEach(function (el, i) {
+      el.classList.add("reveal");
+      el.style.transitionDelay = (i % 4) * 0.08 + "s";
+    });
     var revObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
@@ -69,20 +120,18 @@
           revObserver.unobserve(e.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     revealTargets.forEach(function (el) { revObserver.observe(el); });
-    // safety net: never leave content hidden if the observer misfires
     setTimeout(function () {
       revealTargets.forEach(function (el) { el.classList.add("in"); });
-    }, 4000);
+    }, 5000);
   }
 
-  /* ------------------ scroll-to-top ----------------------- */
+  /* ---------------------- Scroll to Top ---------------------- */
   var topBtn = document.querySelector(".scrolltop");
   if (topBtn) {
     var onScroll = function () {
-      if (window.scrollY > 700) topBtn.classList.add("show");
-      else topBtn.classList.remove("show");
+      topBtn.classList.toggle("show", window.scrollY > 600);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -90,4 +139,16 @@
       window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
     });
   }
+
+  /* ---------------------- Smooth anchor scrolling ---------------------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      }
+    });
+  });
+
 })();

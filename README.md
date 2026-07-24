@@ -1,9 +1,11 @@
 # my-portfolio
 
-Personal portfolio for Mohammad Shariya — Agentic Software Engineer.
+Personal portfolio for Mohammad Shariya — Software Engineer.
 
 Static site (vanilla HTML/CSS/JS, no build step). Open `index.html` or serve the folder.
 
-**Design:** "Agentic Runtime" — paper editorial base, dark runtime panels, oxblood accent. Type: Bricolage Grotesque / Newsreader / IBM Plex Mono.
+**Design:** Premium dark-mode-first, Vercel/Stripe/Linear-inspired. Indigo accent, Inter + JetBrains Mono typography. Light/dark theme toggle with localStorage persistence.
 
-Rebuilt 2026 (original 2022).
+**Sections:** Hero · About · Experience · Projects · Tech Stack · Education · Achievements · Contact
+
+Rebuilt July 2026.

@@ -1,363 +1,458 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mohammad Shariya — Agentic Software Engineer</title>
-<meta name="description" content="Mohammad Shariya — Agentic Software Engineer building production AI: RAG pipelines, LLM tool-calling, and fast Laravel backends. Dhaka, Bangladesh." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammad Shariya — Software Engineer | AI &amp; Backend Systems</title>
+  <meta name="description"
+    content="Mohammad Shariya — Software Engineer specializing in Agentic AI, RAG pipelines, LLM tool-calling, and high-performance Laravel backends. Based in Dhaka, Bangladesh." />
+  <meta name="keywords" content="software engineer, AI engineer, RAG, LLM, Laravel, full-stack, Dhaka, Bangladesh" />
+  <meta name="author" content="Mohammad Shariya" />
+  <meta property="og:title" content="Mohammad Shariya — Software Engineer" />
+  <meta property="og:description"
+    content="Building production AI systems: RAG pipelines, LLM tool-calling, and scalable Laravel backends." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#09090b" />
 
-<meta property="og:title" content="Mohammad Shariya — Agentic Software Engineer" />
-<meta property="og:description" content="I build agents that ship. RAG, LLM tool-calling, and Laravel backends in production." />
-<meta property="og:type" content="website" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
-<link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<!-- ============================ nav ============================ -->
-<header class="nav" id="top">
-  <div class="wrap nav__inner">
-    <a class="nav__brand" href="#top">
-      Mohammad<span>·Shariya</span>
-    </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#about">about</a>
-      <a href="#experience">experience</a>
-      <a href="#work">work</a>
-      <a href="#skills">skills</a>
-      <a href="#contact">contact</a>
-    </nav>
-    <a class="nav__status" href="#contact">
-      <span class="dot" aria-hidden="true"></span> available for work
-    </a>
-    <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<!-- ============================ hero ============================ -->
-<section class="hero" id="home">
-  <figure class="hero__media">
-    <img src="images/shariya.png" alt="Mohammad Shariya speaking at an event" />
-  </figure>
-
-  <div class="wrap">
-    <div class="hero__content">
-      <p class="eyebrow"><span class="eyebrow__dot"></span>Agentic Software Engineer · Dhaka</p>
-      <h1 class="hero__title">
-        I build<br />
-        agents that<br />
-        <em>ship</em>.
-      </h1>
-      <p class="hero__role">
-        <span class="hero__role-static">Currently:</span>
-        <span class="typing" aria-live="polite"></span>
-      </p>
-      <p class="hero__sub">
-        Three years in Laravel backends, now shipping production AI —
-        RAG pipelines, LLM tool-calling, and the automation that ties
-        them together.
-      </p>
-      <div class="hero__cta">
-        <a class="btn btn--solid" href="#work">View work</a>
-        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+  <!-- ==================== NAV ==================== -->
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="#top">shariya<span>.</span>dev</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#work">Projects</a>
+        <a href="#skills">Stack</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav__right">
+        <span class="nav__status"><span class="status-dot" aria-hidden="true"></span> Open to work</span>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2" style="display:none">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+          </svg>
+        </button>
       </div>
-      <ul class="hero__stats">
-        <li><b>3<span>yrs</span></b> shipping backends</li>
-        <li><b>5+</b> production platforms</li>
-        <li><b>AI</b> in prod, not slides</li>
-      </ul>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- ============================ about ============================ -->
-<section class="about" id="about">
-  <div class="wrap about__grid">
-    <div class="about__portrait">
-      <img src="images/shariya-2026.jpg" alt="Portrait of Mohammad Shariya" loading="lazy"
-           onerror="this.closest('.about__portrait').classList.add('is-empty')" />
-      <span class="about__frame-label">shariya.jpg</span>
-    </div>
-    <div class="about__body">
-      <p class="section-label"><span>01</span> about</p>
-      <h2 class="section-title">Engineer first, AI-native by practice.</h2>
-      <p class="lead">
-        I'm a software engineer who puts AI into production, not into slide decks.
-      </p>
-      <p>
-        Most of my day is spent wiring agents: retrieval pipelines with citations and
-        confidence scoring, LLM tool-calling, streaming responses over SSE, and the
-        workflow automation that connects them. Underneath sits three years of Laravel —
-        the part that has to stay fast when traffic doesn't care how clever the AI is.
-      </p>
-      <p>
-        I care about systems that hold up under load: killing redundant queries, caching
-        what actually matters, and testing the paths that break in production. I ship,
-        I measure, and I fix what the numbers tell me to.
-      </p>
-      <div class="about__facts">
-        <div><span class="k">Role</span> Software Engineer, Grade 1</div>
-        <div><span class="k">Focus</span> Agentic AI · RAG · Laravel</div>
-        <div><span class="k">Based</span> Dhaka, Bangladesh</div>
-        <div><span class="k">Degree</span> B.Sc. CSE, Northern University</div>
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="home">
+    <div class="wrap hero__grid">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="status-dot"></span> Available for opportunities
+        </div>
+        <h1 class="hero__title">
+          I build systems<br />that <span class="gradient">ship.</span>
+        </h1>
+        <p class="hero__typing">
+          <span style="color:var(--text-3)">Currently:</span>
+          <span class="typing" aria-live="polite"></span>
+        </p>
+        <p class="hero__desc">
+          Software engineer with 3+ years shipping production backends and AI systems — RAG pipelines, LLM tool-calling,
+          streaming responses, and the automation that ties them together.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#work">View Projects</a>
+          <a class="btn btn--ghost" href="#contact">Get in Touch</a>
+        </div>
+        <ul class="hero__stats">
+          <li><b>3<span class="unit">+</span></b><small>Years shipping</small></li>
+          <li><b>5<span class="unit">+</span></b><small>Production platforms</small></li>
+          <li><b>AI</b><small>In prod, not slides</small></li>
+        </ul>
       </div>
-      <a class="btn btn--ghost" href="Mohammad_Shariya_NUB.pdf" target="_blank" rel="noopener" download>Download CV →</a>
+      <div class="hero__visual">
+        <div class="hero__img-wrap">
+          <img src="images/shariya.png" alt="Mohammad Shariya" />
+        </div>
+        <div class="hero__float-card top-card">
+          <div class="float-label">Focus</div>
+          <div class="float-value">Agentic AI · RAG</div>
+        </div>
+        <div class="hero__float-card bottom-card">
+          <div class="float-label">Stack</div>
+          <div class="float-value">Laravel · LLM</div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ========================= experience ========================= -->
-<section class="exp" id="experience">
-  <div class="wrap">
-    <p class="section-label"><span>02</span> experience</p>
-    <h2 class="section-title">Where I've shipped.</h2>
+  <!-- ==================== ABOUT ==================== -->
+  <section class="section section--alt" id="about">
+    <div class="wrap">
+      <div class="about__grid">
+        <div class="about__portrait">
+          <img src="images/shariya-2026.jpg" alt="Portrait of Mohammad Shariya" loading="lazy" />
+        </div>
+        <div class="about__body">
+          <p class="section__label"><span>01</span> About</p>
+          <h2 class="section__title">Engineer first,<br />AI-native by practice.</h2>
+          <p class="lead">I put AI into production, not into slide decks.</p>
+          <p>Most of my day is spent wiring agents: retrieval pipelines with citations and confidence scoring, LLM
+            tool-calling, streaming responses over SSE, and the workflow automation that connects them. Underneath sits
+            three years of Laravel — the part that has to stay fast when traffic doesn't care how clever the AI is.</p>
+          <p>I care about systems that hold up under load: killing redundant queries, caching what actually matters, and
+            testing the paths that break in production. I ship, I measure, and I fix what the numbers tell me to.</p>
+          <div class="about__facts">
+            <div><span class="k">Role</span> Software Engineer, Grade 1</div>
+            <div><span class="k">Focus</span> Agentic AI · RAG · Laravel</div>
+            <div><span class="k">Based</span> Dhaka, Bangladesh</div>
+            <div><span class="k">Degree</span> B.Sc. CSE (Ongoing), Northern University</div>
+          </div>
+          <a class="btn btn--ghost" href="Mohammad_Shariya_NUB.pdf" target="_blank" rel="noopener" download>Download CV
+            →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <ol class="timeline">
-      <li class="tl">
-        <div class="tl__when">05/2025 — Present</div>
-        <div class="tl__what">
-          <h3>Software Engineer, Grade 1 <span>· 6am Tech</span></h3>
-          <p>
-            Building AI features for a large-scale multi-vendor e-commerce platform —
-            an LLM-powered shopping assistant, a personalized homepage, and an auction module.
-            Wrote AI automation with the OpenAI APIs and hardened the backend for scale.
-          </p>
-          <ul class="tl__wins">
-            <li><b>100+</b> redundant database queries eliminated</li>
-            <li><b>E2E</b> Playwright coverage on critical flows</li>
-            <li><b>AI-assisted</b> engineering across the team</li>
+  <!-- ==================== EXPERIENCE ==================== -->
+  <section class="section" id="experience">
+    <div class="wrap">
+      <p class="section__label"><span>02</span> Experience</p>
+      <h2 class="section__title">Where I've shipped.</h2>
+      <p class="section__subtitle">Building production systems across AI and backend engineering.</p>
+
+      <ol class="timeline">
+        <li class="tl">
+          <div class="tl__when">05/2025 — Present</div>
+          <div class="tl__what">
+            <h3>Software Engineer, Grade 1 <span>· 6am Tech</span></h3>
+            <p>Building AI features for a large-scale multi-vendor e-commerce platform — an LLM-powered shopping
+              assistant, a personalized homepage, and an auction module. Wrote AI automation with the OpenAI APIs and
+              hardened the backend for scale.</p>
+            <ul class="tl__wins">
+              <li><b>100+</b> redundant queries eliminated</li>
+              <li><b>E2E</b> Playwright coverage on critical flows</li>
+              <li><b>AI-assisted</b> engineering across the team</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl">
+          <div class="tl__when">10/2023 — 04/2025</div>
+          <div class="tl__what">
+            <h3>Jr. Software Engineer <span>· Codeware Ltd.</span></h3>
+            <p>Built scalable flight, hotel, and tour booking platforms with secure B2B/B2C APIs and multi-gateway
+              payments, plus the admin and partner portals around them.</p>
+            <ul class="tl__wins">
+              <li><b>40%</b> faster via Redis caching + backend tuning</li>
+              <li><b>Multi-gateway</b> payment integration</li>
+              <li><b>B2B / B2C</b> partner portals delivered</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <section class="section section--alt" id="work">
+    <div class="wrap">
+      <p class="section__label"><span>03</span> Selected Work</p>
+      <h2 class="section__title">Systems in production.</h2>
+      <p class="section__subtitle">Real platforms, real users, real scale.</p>
+
+      <div class="projects__grid">
+        <article class="proj proj--featured">
+          <div>
+            <header class="proj__head">
+              <h3><a href="https://unnexus.roboticsmartbd.com" target="_blank" rel="noopener">UniNexus <span
+                    style="font-size:.6em;color:var(--accent)">↗</span></a></h3>
+              <span class="proj__tag">AI Academic Copilot</span>
+            </header>
+            <p>A university management platform with a RAG-based academic copilot: semantic retrieval with citations and
+              confidence scoring, plus permission-aware agents that plan study sessions, generate quizzes, book office
+              hours, and build flashcards.</p>
+            <ul class="proj__wins">
+              <li>Production RAG pipeline w/ citations + confidence</li>
+              <li>RBAC across 46 permissions</li>
+              <li>OCR note indexing · face detection during exams</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="stack">
+              <li>Laravel</li>
+              <li>RAG</li>
+              <li>OpenAI</li>
+              <li>Streaming SSE</li>
+              <li>MySQL</li>
+              <li>OCR</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="proj">
+          <header class="proj__head">
+            <h3><a href="https://6valley-aster.6amtech.com/" target="_blank" rel="noopener">6valley <span
+                  style="font-size:.6em;color:var(--accent)">↗</span></a></h3>
+            <span class="proj__tag">Multi-vendor Commerce</span>
+          </header>
+          <p>Enterprise marketplace with AI shopping experiences — an assistant, an LLM-personalized homepage, and an
+            auction module — over high-traffic APIs.</p>
+          <ul class="proj__wins">
+            <li>AI shopping assistant + personalized home</li>
+            <li>100+ redundant queries removed</li>
+          </ul>
+          <ul class="stack">
+            <li>Laravel</li>
+            <li>LLM</li>
+            <li>Redis</li>
+            <li>Playwright</li>
+          </ul>
+        </article>
+
+        <article class="proj">
+          <header class="proj__head">
+            <h3><a href="https://etripi.com/" target="_blank" rel="noopener">Etripi <span
+                  style="font-size:.6em;color:var(--accent)">↗</span></a></h3>
+            <span class="proj__tag">Hotel Booking</span>
+          </header>
+          <p>Online hotel reservation platform. Built the booking modules and resolved production scalability and
+            timeout issues under real load.</p>
+          <ul class="proj__wins">
+            <li>Booking + reservation modules</li>
+            <li>Fixed timeout / scale issues in prod</li>
+          </ul>
+          <ul class="stack">
+            <li>Laravel</li>
+            <li>MySQL</li>
+            <li>REST</li>
+          </ul>
+        </article>
+
+        <article class="proj">
+          <header class="proj__head">
+            <h3><a href="https://www.fanamtrip.com/" target="_blank" rel="noopener">Fanamtrip <span
+                  style="font-size:.6em;color:var(--accent)">↗</span></a></h3>
+            <span class="proj__tag">Flight Booking · B2B/B2C</span>
+          </header>
+          <p>Enterprise flight booking for travel agencies — booking APIs, payment integrations, visa-processing
+            workflows, and admin/partner portals.</p>
+          <ul class="proj__wins">
+            <li>Booking APIs + multi-gateway payments</li>
+            <li>Redis optimization across the stack</li>
+          </ul>
+          <ul class="stack">
+            <li>Laravel</li>
+            <li>Redis</li>
+            <li>Payments</li>
+            <li>REST</li>
+          </ul>
+        </article>
+
+        <article class="proj">
+          <header class="proj__head">
+            <h3><a href="https://www.snowsearch.com.au/" target="_blank" rel="noopener">Snowsearch <span
+                  style="font-size:.6em;color:var(--accent)">↗</span></a></h3>
+            <span class="proj__tag">Tour Booking · AU</span>
+          </header>
+          <p>Australian tour booking platform. Built reservation APIs and optimized backend performance following
+            clean-architecture principles.</p>
+          <ul class="proj__wins">
+            <li>Reservation APIs, clean architecture</li>
+            <li>Backend performance tuning</li>
+          </ul>
+          <ul class="stack">
+            <li>Laravel</li>
+            <li>Clean Arch</li>
+            <li>MySQL</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SKILLS ==================== -->
+  <section class="section" id="skills">
+    <div class="wrap">
+      <p class="section__label"><span>04</span> Tech Stack</p>
+      <h2 class="section__title">The tools I reach for.</h2>
+      <p class="section__subtitle">Technologies I use daily to build and ship production systems.</p>
+
+      <div class="skills__grid">
+        <div class="skillset">
+          <h3>AI Engineering</h3>
+          <ul>
+            <li>Agentic AI</li>
+            <li>RAG</li>
+            <li>LLM Integration</li>
+            <li>Tool Calling</li>
+            <li>Prompt Engineering</li>
+            <li>Semantic Search</li>
+            <li>Streaming (SSE)</li>
+            <li>Workflow Automation</li>
+            <li>OCR</li>
           </ul>
         </div>
-      </li>
-      <li class="tl">
-        <div class="tl__when">10/2023 — 04/2025</div>
-        <div class="tl__what">
-          <h3>Jr. Software Engineer <span>· Codeware Ltd.</span></h3>
-          <p>
-            Built scalable flight, hotel, and tour booking platforms with secure B2B/B2C
-            APIs and multi-gateway payments, plus the admin and partner portals around them.
-          </p>
-          <ul class="tl__wins">
-            <li><b>40%</b> faster via Redis caching + backend tuning</li>
-            <li><b>Multi-gateway</b> payment integration</li>
-            <li><b>B2B / B2C</b> partner portals delivered</li>
+        <div class="skillset">
+          <h3>Agentic Tooling</h3>
+          <ul>
+            <li>Claude Code</li>
+            <li>Codex</li>
+            <li>OpenSpec</li>
+            <li>MCP</li>
+            <li>Conductor</li>
+            <li>OpenAI API</li>
+            <li>OpenRouter</li>
+            <li>Cursor</li>
+            <li>Copilot</li>
           </ul>
         </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ============================ work ============================ -->
-<section class="work" id="work">
-  <div class="wrap">
-    <p class="section-label section-label--invert"><span>03</span> selected work</p>
-    <h2 class="section-title section-title--invert">Systems in production.</h2>
-
-    <div class="work__grid">
-      <article class="proj proj--wide">
-        <header class="proj__head">
-          <h3><a href="https://unnexus.roboticsmartbd.com" target="_blank" rel="noopener">UniNexus <span class="ext">↗</span></a></h3>
-
-          <span class="proj__tag">AI Academic Copilot</span>
-        </header>
-        <p>
-          A university management platform with a RAG-based academic copilot: semantic
-          retrieval with citations and confidence scoring, plus permission-aware agents
-          that plan study sessions, generate quizzes, book office hours, and build flashcards.
-        </p>
-        <ul class="proj__wins">
-          <li>Production RAG pipeline w/ citations + confidence</li>
-          <li>RBAC across 46 permissions</li>
-          <li>OCR note indexing · face detection during exams</li>
-        </ul>
-        <ul class="stack">
-          <li>Laravel</li><li>RAG</li><li>OpenAI</li><li>Streaming SSE</li><li>MySQL</li><li>OCR</li>
-        </ul>
-      </article>
-
-      <article class="proj">
-        <header class="proj__head">
-          <h3><a href="https://6valley-aster.6amtech.com/" target="_blank" rel="noopener">6valley <span class="ext">↗</span></a></h3>
-          <span class="proj__tag">Multi-vendor commerce</span>
-        </header>
-        <p>
-          Enterprise marketplace with AI shopping experiences — an assistant, an
-          LLM-personalized homepage, and an auction module — over high-traffic APIs.
-        </p>
-        <ul class="proj__wins">
-          <li>AI shopping assistant + personalized home</li>
-          <li>100+ redundant queries removed</li>
-        </ul>
-        <ul class="stack">
-          <li>Laravel</li><li>LLM</li><li>Redis</li><li>Playwright</li>
-        </ul>
-      </article>
-
-      <article class="proj">
-        <header class="proj__head">
-          <h3><a href="https://etripi.com/" target="_blank" rel="noopener">Etripi <span class="ext">↗</span></a></h3>
-          <span class="proj__tag">Hotel booking</span>
-        </header>
-        <p>
-          Online hotel reservation platform. Built the booking modules and resolved
-          production scalability and timeout issues under real load.
-        </p>
-        <ul class="proj__wins">
-          <li>Booking + reservation modules</li>
-          <li>Fixed timeout / scale issues in prod</li>
-        </ul>
-        <ul class="stack">
-          <li>Laravel</li><li>MySQL</li><li>REST</li>
-        </ul>
-      </article>
-
-      <article class="proj">
-        <header class="proj__head">
-          <h3><a href="https://www.fanamtrip.com/" target="_blank" rel="noopener">Fanamtrip <span class="ext">↗</span></a></h3>
-          <span class="proj__tag">Flight booking · B2B/B2C</span>
-        </header>
-        <p>
-          Enterprise flight booking for travel agencies — booking APIs, payment
-          integrations, visa-processing workflows, and admin/partner portals.
-        </p>
-        <ul class="proj__wins">
-          <li>Booking APIs + multi-gateway payments</li>
-          <li>Redis optimization across the stack</li>
-        </ul>
-        <ul class="stack">
-          <li>Laravel</li><li>Redis</li><li>Payments</li><li>REST</li>
-        </ul>
-      </article>
-
-      <article class="proj">
-        <header class="proj__head">
-          <h3><a href="https://www.snowsearch.com.au/" target="_blank" rel="noopener">Snowsearch <span class="ext">↗</span></a></h3>
-          <span class="proj__tag">Tour booking · AU</span>
-        </header>
-        <p>
-          Australian tour booking platform. Built reservation APIs and optimized backend
-          performance following clean-architecture principles.
-        </p>
-        <ul class="proj__wins">
-          <li>Reservation APIs, clean architecture</li>
-          <li>Backend performance tuning</li>
-        </ul>
-        <ul class="stack">
-          <li>Laravel</li><li>Clean Arch</li><li>MySQL</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ skills ============================ -->
-<section class="skills" id="skills">
-  <div class="wrap">
-    <p class="section-label"><span>04</span> stack</p>
-    <h2 class="section-title">The tools I reach for.</h2>
-
-    <div class="skills__grid">
-      <div class="skillset">
-        <h3>AI Engineering</h3>
-        <ul>
-          <li>Agentic AI</li><li>RAG</li><li>LLM Integration</li><li>Tool Calling</li>
-          <li>Prompt Engineering</li><li>Semantic Search</li><li>Streaming (SSE)</li>
-          <li>Workflow Automation</li><li>OCR</li>
-        </ul>
-      </div>
-      <div class="skillset">
-        <h3>Agentic Tooling</h3>
-        <ul>
-          <li>Claude Code</li><li>Codex</li><li>OpenSpec</li><li>MCP</li>
-          <li>Conductor</li><li>OpenAI API</li><li>OpenRouter</li><li>Cursor</li><li>Copilot</li>
-        </ul>
-      </div>
-      <div class="skillset">
-        <h3>Backend</h3>
-        <ul>
-          <li>PHP</li><li>Laravel</li><li>REST APIs</li><li>Livewire</li>
-          <li>Inertia.js</li><li>Queues</li><li>Redis</li><li>Caching</li>
-        </ul>
-      </div>
-      <div class="skillset">
-        <h3>Testing &amp; Data</h3>
-        <ul>
-          <li>Pest</li><li>Playwright</li><li>Laravel Dusk</li>
-          <li>MySQL</li><li>Redis</li><li>SQL</li>
-        </ul>
-      </div>
-      <div class="skillset">
-        <h3>DevOps</h3>
-        <ul>
-          <li>Ubuntu</li><li>VPS</li><li>Docker</li><li>Nginx</li>
-          <li>Supervisor</li><li>Git</li><li>GitHub Actions</li><li>CI/CD</li>
-        </ul>
-      </div>
-      <div class="skillset">
-        <h3>Architecture</h3>
-        <ul>
-          <li>DDD</li><li>System Design</li><li>Performance</li>
-          <li>Scalability</li><li>Production Debugging</li>
-        </ul>
+        <div class="skillset">
+          <h3>Backend</h3>
+          <ul>
+            <li>PHP</li>
+            <li>Laravel</li>
+            <li>REST APIs</li>
+            <li>Livewire</li>
+            <li>Inertia.js</li>
+            <li>Queues</li>
+            <li>Redis</li>
+            <li>Caching</li>
+          </ul>
+        </div>
+        <div class="skillset">
+          <h3>Testing &amp; Data</h3>
+          <ul>
+            <li>Pest</li>
+            <li>Playwright</li>
+            <li>Laravel Dusk</li>
+            <li>MySQL</li>
+            <li>Redis</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="skillset">
+          <h3>DevOps</h3>
+          <ul>
+            <li>Ubuntu</li>
+            <li>VPS</li>
+            <li>Docker</li>
+            <li>Nginx</li>
+            <li>Supervisor</li>
+            <li>Git</li>
+            <li>GitHub Actions</li>
+            <li>CI/CD</li>
+          </ul>
+        </div>
+        <div class="skillset">
+          <h3>Architecture</h3>
+          <ul>
+            <li>DDD</li>
+            <li>System Design</li>
+            <li>Performance</li>
+            <li>Scalability</li>
+            <li>Production Debugging</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================ contact ============================ -->
-<section class="contact" id="contact">
-  <div class="wrap contact__grid">
-    <div class="contact__lede">
-      <p class="section-label section-label--invert"><span>05</span> contact</p>
-      <h2 class="contact__title">Have a system<br />that needs building?</h2>
-      <p class="contact__sub">
-        I'm open to work on production AI and backend systems. The fastest way to
-        reach me is email — I read everything.
-      </p>
+  <!-- ==================== EDUCATION ==================== -->
+  <section class="section section--alt" id="education">
+    <div class="wrap">
+      <p class="section__label"><span>05</span> Education</p>
+      <h2 class="section__title">Academic foundation.</h2>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <h3>Bachelor of Science in Computer Science &amp; Engineering</h3>
+          <p class="edu-school">Northern University Bangladesh</p>
+          <p class="edu-date">Expected Graduation — 2027</p>
+        </div>
+      </div>
     </div>
-    <div class="contact__links">
-      <a class="link-row" href="mailto:shariya873@gmail.com">
-        <span class="k">email</span>
-        <span class="v">shariya873@gmail.com</span>
-        <span class="arw">→</span>
-      </a>
-      <a class="link-row" href="https://linkedin.com/in/shariya-shuvo" target="_blank" rel="noopener">
-        <span class="k">linkedin</span>
-        <span class="v">in/shariya-shuvo</span>
-        <span class="arw">→</span>
-      </a>
-      <a class="link-row" href="https://github.com/shariyabd" target="_blank" rel="noopener">
-        <span class="k">github</span>
-        <span class="v">github.com/shariyabd</span>
-        <span class="arw">→</span>
-      </a>
-      <a class="link-row" href="tel:+8801831525212">
-        <span class="k">phone</span>
-        <span class="v">+880 1831 525212</span>
-        <span class="arw">→</span>
-      </a>
+  </section>
+
+  <!-- ==================== ACHIEVEMENTS ==================== -->
+  <section class="section" id="achievements">
+    <div class="wrap">
+      <p class="section__label"><span>06</span> Achievements</p>
+      <h2 class="section__title">Recognition &amp; competitions.</h2>
+      <p class="section__subtitle">Competing, building, and earning recognition at national-level events.</p>
+
+      <div class="achievements__grid">
+        <div class="achievement">
+          <div class="achievement__icon">🏆</div>
+          <h3>SMUCT CSE FEST 2026 — Finalist</h3>
+          <p class="achievement__event">Project Showcase Segment</p>
+          <p>Reached the finals at SMUCT CSE Fest 2026, competing in the Project Showcase segment with a
+            production-level AI-powered system against top engineering teams from across the country.</p>
+        </div>
+        <div class="achievement">
+          <div class="achievement__icon">🏆</div>
+          <h3>MindSparks 2026 (AUSTIDC) — Finalist</h3>
+          <p class="achievement__event">Project Showcase Segment</p>
+          <p>Selected as a finalist at MindSparks 2026 (AUSTIDC), presenting innovative AI-integrated solutions in the
+            Project Showcase segment at one of the most competitive inter-university tech competitions.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================ footer ============================ -->
-<footer class="foot">
-  <div class="wrap foot__inner">
-    <span>Mohammad Shariya</span>
-    <span class="foot__mono">© 2026</span>
-    <a href="#top">back to top ↑</a>
-  </div>
-</footer>
+  <!-- ==================== CONTACT ==================== -->
+  <section class="section contact" id="contact">
+    <div class="wrap contact__grid">
+      <div>
+        <p class="section__label"><span>07</span> Contact</p>
+        <h2 class="contact__title">Have a system<br />that needs building?</h2>
+        <p class="contact__sub">I'm open to work on production AI and backend systems. The fastest way to reach me is
+          email — I read everything.</p>
+      </div>
+      <div class="contact__links">
+        <a class="link-row" href="mailto:shariya873@gmail.com">
+          <span class="k">Email</span><span class="v">shariya873@gmail.com</span><span class="arw">→</span>
+        </a>
+        <a class="link-row" href="https://linkedin.com/in/shariya-shuvo" target="_blank" rel="noopener">
+          <span class="k">LinkedIn</span><span class="v">in/shariya-shuvo</span><span class="arw">→</span>
+        </a>
+        <a class="link-row" href="https://github.com/shariyabd" target="_blank" rel="noopener">
+          <span class="k">GitHub</span><span class="v">github.com/shariyabd</span><span class="arw">→</span>
+        </a>
+        <a class="link-row" href="tel:+8801831525212">
+          <span class="k">Phone</span><span class="v">+880 1831 525212</span><span class="arw">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-<button class="scrolltop" aria-label="Scroll to top">↑</button>
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <span>Mohammad Shariya</span>
+      <span>© 2026</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
 
-<script src="script.js"></script>
+  <button class="scrolltop" aria-label="Scroll to top">↑</button>
+  <script src="script.js"></script>
 </body>
+
 </html>
