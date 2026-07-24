@@ -1,82 +1,93 @@
-$(document).ready(function(){
+/* =========================================================
+   Mohammad Shariya — portfolio interactions (vanilla, no deps)
+   ========================================================= */
+(function () {
+  "use strict";
 
-    $(window).scroll(function(){
-        // sticky navbar on scroll script
-        if(this.scrollY > 20){
-            $('.navbar').addClass("sticky");
-        }else{
-            $('.navbar').removeClass("sticky");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------------------- mobile nav ---------------------- */
+  var nav = document.querySelector(".nav");
+  var toggle = document.querySelector(".nav__toggle");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    nav.querySelectorAll(".nav__links a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        nav.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  /* -------------------- rotating role --------------------- */
+  var roles = [
+    "Agentic Software Engineer.",
+    "RAG & LLM engineer.",
+    "Laravel backend engineer.",
+    "AI automation builder."
+  ];
+  var typingEl = document.querySelector(".typing");
+  if (typingEl) {
+    if (reduceMotion) {
+      typingEl.textContent = roles[0];
+    } else {
+      var r = 0, c = 0, deleting = false;
+      (function tick() {
+        var word = roles[r];
+        typingEl.textContent = word.slice(0, c);
+        if (!deleting && c < word.length) {
+          c++;
+        } else if (!deleting && c === word.length) {
+          deleting = true;
+          return setTimeout(tick, 1600);
+        } else if (deleting && c > 0) {
+          c--;
+        } else {
+          deleting = false;
+          r = (r + 1) % roles.length;
         }
-        
-        // scroll-up button show/hide script
-        if(this.scrollY > 500){
-            $('.scroll-up-btn').addClass("show");
-        }else{
-            $('.scroll-up-btn').removeClass("show");
-        }
-    });
-
-    // slide-up script
-    $('.scroll-up-btn').click(function(){
-        $('html').animate({scrollTop: 0});
-        // removing smooth scroll on slide-up button click
-        $('html').css("scrollBehavior", "auto");
-    });
-
-    $('.navbar .menu li a').click(function(){
-        // applying again smooth scroll on menu items click
-        $('html').css("scrollBehavior", "smooth");
-    });
-
-    // toggle menu/navbar script
-    $('.menu-btn').click(function(){
-        $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
-    });
-
-    // typing text animation script
-    var typed = new Typed(".typing", {
-        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-    var typed = new Typed(".typing-2", {
-        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-    // owl carousel script
-    $('.carousel').owlCarousel({
-        margin: 20,
-        loop: true,
-        autoplay: true,
-        autoplayTimeOut: 2000,
-        autoplayHoverPause: true,
-        responsive: {
-            0:{
-                items: 1,
-                nav: false
-            },
-            600:{
-                items: 2,
-                nav: false
-            },
-            1000:{
-                items: 3,
-                nav: false
-            }
-        }
-    });
-
-
-    // preloader script of home page
-    window.onload = function(){
-        $('.preloader').fadeOut(1500);
+        setTimeout(tick, deleting ? 34 : 62);
+      })();
     }
-});
+  }
 
+  /* ------------------ scroll reveal ----------------------- */
+  var revealTargets = document.querySelectorAll(
+    ".section-title, .lead, .tl, .proj, .skillset, .about__body p, .about__portrait, .contact__title, .link-row"
+  );
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    revealTargets.forEach(function (el) { el.classList.add("in"); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add("reveal"); });
+    var revObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          revObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    revealTargets.forEach(function (el) { revObserver.observe(el); });
+    // safety net: never leave content hidden if the observer misfires
+    setTimeout(function () {
+      revealTargets.forEach(function (el) { el.classList.add("in"); });
+    }, 4000);
+  }
 
+  /* ------------------ scroll-to-top ----------------------- */
+  var topBtn = document.querySelector(".scrolltop");
+  if (topBtn) {
+    var onScroll = function () {
+      if (window.scrollY > 700) topBtn.classList.add("show");
+      else topBtn.classList.remove("show");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    topBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
+})();
