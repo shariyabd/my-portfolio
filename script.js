@@ -26,9 +26,7 @@
   }
 
   var saved = localStorage.getItem("theme");
-  if (saved) { setTheme(saved); }
-  else if (window.matchMedia("(prefers-color-scheme: dark)").matches) { setTheme("dark"); }
-  else { setTheme("light"); }
+  setTheme(saved || "light");
 
   if (themeBtn) {
     themeBtn.addEventListener("click", function () {
@@ -102,7 +100,7 @@
 
   /* ---------------------- Scroll Reveal ---------------------- */
   var revealTargets = document.querySelectorAll(
-    ".section__title, .section__subtitle, .lead, .tl, .proj, .skillset, " +
+    ".section__title, .section__subtitle, .lead, .tl, .proj, .skill-card, " +
     ".about__body p, .about__portrait, .contact__title, .link-row, " +
     ".edu-card, .achievement, .cert, .hero__content, .hero__visual"
   );

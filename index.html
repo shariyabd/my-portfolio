@@ -78,7 +78,10 @@
         </p>
         <div class="hero__cta">
           <a class="btn btn--primary" href="#work">View Projects</a>
-          <a class="btn btn--ghost" href="#contact">Get in Touch</a>
+          <a class="btn btn--cv" href="Mohammad_Shariya_NUB.pdf" target="_blank" rel="noopener" download>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
         </div>
         <ul class="hero__stats">
           <li><b>3<span class="unit">+</span></b><small>Years shipping</small></li>
@@ -294,81 +297,146 @@
       <h2 class="section__title">The tools I reach for.</h2>
       <p class="section__subtitle">Technologies I use daily to build and ship production systems.</p>
 
-      <div class="skills__grid">
-        <div class="skillset">
-          <h3>AI Engineering</h3>
-          <ul>
-            <li>Agentic AI</li>
-            <li>RAG</li>
-            <li>LLM Integration</li>
-            <li>Tool Calling</li>
-            <li>Prompt Engineering</li>
-            <li>Semantic Search</li>
-            <li>Streaming (SSE)</li>
-            <li>Workflow Automation</li>
-            <li>OCR</li>
-          </ul>
+      <div class="skills-bento">
+        <!-- AI Engineering — featured/large -->
+        <div class="skill-card skill-card--featured" data-category="ai">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 3 3v1a2 2 0 0 1 0 4v1a3 3 0 0 1-3 3v1a4 4 0 0 1-8 0v-1a3 3 0 0 1-3-3v-1a2 2 0 0 1 0-4v-1a3 3 0 0 1 3-3V6a4 4 0 0 1 4-4z"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div>
+              <h3>AI Engineering</h3>
+              <span class="skill-card__count">9 skills</span>
+            </div>
+          </div>
+          <div class="skill-card__tags">
+            <span class="skill-tag skill-tag--glow">Agentic AI</span>
+            <span class="skill-tag skill-tag--glow">RAG</span>
+            <span class="skill-tag skill-tag--glow">LLM Integration</span>
+            <span class="skill-tag">Tool Calling</span>
+            <span class="skill-tag">Prompt Engineering</span>
+            <span class="skill-tag">Semantic Search</span>
+            <span class="skill-tag">Streaming (SSE)</span>
+            <span class="skill-tag">Workflow Automation</span>
+            <span class="skill-tag">OCR</span>
+          </div>
+          <div class="skill-card__accent-line"></div>
         </div>
-        <div class="skillset">
-          <h3>Agentic Tooling</h3>
-          <ul>
-            <li>Claude Code</li>
-            <li>Codex</li>
-            <li>OpenSpec</li>
-            <li>MCP</li>
-            <li>Conductor</li>
-            <li>OpenAI API</li>
-            <li>OpenRouter</li>
-            <li>Cursor</li>
-            <li>Copilot</li>
-          </ul>
+
+        <!-- Agentic Tooling -->
+        <div class="skill-card skill-card--featured" data-category="tooling">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <h3>Agentic Tooling</h3>
+              <span class="skill-card__count">9 tools</span>
+            </div>
+          </div>
+          <div class="skill-card__tags">
+            <span class="skill-tag skill-tag--glow">Claude Code</span>
+            <span class="skill-tag skill-tag--glow">Codex</span>
+            <span class="skill-tag">OpenSpec</span>
+            <span class="skill-tag">MCP</span>
+            <span class="skill-tag">Conductor</span>
+            <span class="skill-tag">OpenAI API</span>
+            <span class="skill-tag">OpenRouter</span>
+            <span class="skill-tag">Cursor</span>
+            <span class="skill-tag">Copilot</span>
+          </div>
+          <div class="skill-card__accent-line"></div>
         </div>
-        <div class="skillset">
-          <h3>Backend</h3>
-          <ul>
-            <li>PHP</li>
-            <li>Laravel</li>
-            <li>REST APIs</li>
-            <li>Livewire</li>
-            <li>Inertia.js</li>
-            <li>Queues</li>
-            <li>Redis</li>
-            <li>Caching</li>
-          </ul>
+
+        <!-- Backend -->
+        <div class="skill-card" data-category="backend">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h3>Backend</h3>
+              <span class="skill-card__count">8 skills</span>
+            </div>
+          </div>
+          <div class="skill-card__tags">
+            <span class="skill-tag skill-tag--glow">PHP</span>
+            <span class="skill-tag skill-tag--glow">Laravel</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Livewire</span>
+            <span class="skill-tag">Inertia.js</span>
+            <span class="skill-tag">Queues</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">Caching</span>
+          </div>
+          <div class="skill-card__accent-line"></div>
         </div>
-        <div class="skillset">
-          <h3>Testing &amp; Data</h3>
-          <ul>
-            <li>Pest</li>
-            <li>Playwright</li>
-            <li>Laravel Dusk</li>
-            <li>MySQL</li>
-            <li>Redis</li>
-            <li>SQL</li>
-          </ul>
+
+        <!-- Testing & Data -->
+        <div class="skill-card" data-category="testing">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+            </div>
+            <div>
+              <h3>Testing &amp; Data</h3>
+              <span class="skill-card__count">6 skills</span>
+            </div>
+          </div>
+          <div class="skill-card__tags">
+            <span class="skill-tag">Pest</span>
+            <span class="skill-tag">Playwright</span>
+            <span class="skill-tag">Laravel Dusk</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Redis</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+          <div class="skill-card__accent-line"></div>
         </div>
-        <div class="skillset">
-          <h3>DevOps</h3>
-          <ul>
-            <li>Ubuntu</li>
-            <li>VPS</li>
-            <li>Docker</li>
-            <li>Nginx</li>
-            <li>Supervisor</li>
-            <li>Git</li>
-            <li>GitHub Actions</li>
-            <li>CI/CD</li>
-          </ul>
+
+        <!-- DevOps -->
+        <div class="skill-card" data-category="devops">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <h3>DevOps</h3>
+              <span class="skill-card__count">8 skills</span>
+            </div>
+          </div>
+          <div class="skill-card__tags">
+            <span class="skill-tag">Ubuntu</span>
+            <span class="skill-tag">VPS</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Nginx</span>
+            <span class="skill-tag">Supervisor</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+          <div class="skill-card__accent-line"></div>
         </div>
-        <div class="skillset">
-          <h3>Architecture</h3>
-          <ul>
-            <li>DDD</li>
-            <li>System Design</li>
-            <li>Performance</li>
-            <li>Scalability</li>
-            <li>Production Debugging</li>
-          </ul>
+
+        <!-- Architecture -->
+        <div class="skill-card" data-category="arch">
+          <div class="skill-card__header">
+            <div class="skill-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <div>
+              <h3>Architecture</h3>
+              <span class="skill-card__count">5 skills</span>
+            </div>
+          </div>
+          <div class="skill-card__tags">
+            <span class="skill-tag">DDD</span>
+            <span class="skill-tag">System Design</span>
+            <span class="skill-tag">Performance</span>
+            <span class="skill-tag">Scalability</span>
+            <span class="skill-tag">Production Debugging</span>
+          </div>
+          <div class="skill-card__accent-line"></div>
         </div>
       </div>
     </div>
