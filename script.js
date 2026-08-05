@@ -22,7 +22,7 @@
     }
     // Update theme-color meta
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "dark" ? "#09090b" : "#fafafa");
+    if (meta) meta.setAttribute("content", theme === "dark" ? "#000000" : "#F8FAFC");
   }
 
   var saved = localStorage.getItem("theme");
