@@ -6,7 +6,9 @@
   <title>Theme Preview — Design System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
   <style>
     /* ===== CSS Variables ===== */
     :root {
@@ -154,13 +156,138 @@
 
     /* ===== Layout ===== */
     .container {
-      max-width: 960px;
+      max-width: 100%;
       margin: 0 auto;
       padding: 100px 24px 80px;
     }
 
     section {
       margin-bottom: 64px;
+    }
+
+    /* ===== Typography Comparison Grid ===== */
+    .type-comparison {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .type-column {
+      min-width: 0;
+    }
+
+    .type-column-header {
+      margin-bottom: 16px;
+    }
+
+    .type-column-header h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .type-column-header .font-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      transition: all var(--transition);
+    }
+
+    .font-tag--inter {
+      background: rgba(124, 58, 237, 0.1);
+      color: #7C3AED;
+    }
+    [data-theme="dark"] .font-tag--inter {
+      background: rgba(255, 255, 255, 0.08);
+      color: #EDEDED;
+    }
+
+    .font-tag--jakarta {
+      background: rgba(14, 165, 233, 0.1);
+      color: #0EA5E9;
+    }
+    [data-theme="dark"] .font-tag--jakarta {
+      background: rgba(14, 165, 233, 0.12);
+      color: #38BDF8;
+    }
+
+    .font-tag--nunito {
+      background: rgba(234, 88, 12, 0.1);
+      color: #EA580C;
+    }
+    [data-theme="dark"] .font-tag--nunito {
+      background: rgba(234, 88, 12, 0.12);
+      color: #FB923C;
+    }
+
+    .font-tag--general {
+      background: rgba(16, 185, 129, 0.1);
+      color: #059669;
+    }
+    [data-theme="dark"] .font-tag--general {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+    }
+
+    .font-tag--satoshi {
+      background: rgba(219, 39, 119, 0.1);
+      color: #DB2777;
+    }
+    [data-theme="dark"] .font-tag--satoshi {
+      background: rgba(219, 39, 119, 0.12);
+      color: #F472B6;
+    }
+
+    .type-column-header p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* Font family overrides */
+    .font-inter { font-family: 'Inter', sans-serif; }
+    .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-nunito { font-family: 'Nunito Sans', sans-serif; }
+    .font-general { font-family: 'General Sans', sans-serif; }
+    .font-satoshi { font-family: 'Satoshi', sans-serif; }
+
+    /* Paragraph preview card */
+    .para-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-top: 16px;
+      transition: all var(--transition);
+    }
+    .para-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .para-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 1200px) {
+      .type-comparison {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .type-comparison {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
     }
 
     /* ===== Hero Section ===== */
@@ -336,7 +463,7 @@
       background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 40px;
+      padding: 28px;
       transition: all var(--transition);
     }
 
@@ -344,7 +471,7 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      padding: 16px 0;
+      padding: 12px 0;
       border-bottom: 1px solid var(--border);
       transition: border-color var(--transition);
     }
@@ -355,24 +482,29 @@
 
     .type-sample {
       flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .type-meta {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
       font-weight: 500;
       text-align: right;
-      min-width: 120px;
+      min-width: 70px;
       font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+      margin-left: 8px;
     }
 
-    .type-row .h1 { font-size: 48px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
-    .type-row .h2 { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
-    .type-row .h3 { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
-    .type-row .h4 { font-size: 18px; font-weight: 600; line-height: 1.4; }
-    .type-row .body { font-size: 16px; font-weight: 400; line-height: 1.6; }
-    .type-row .small { font-size: 14px; font-weight: 400; color: var(--text-muted); line-height: 1.5; }
-    .type-row .caption { font-size: 12px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
+    .type-row .h1 { font-size: 36px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+    .type-row .h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+    .type-row .h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
+    .type-row .h4 { font-size: 17px; font-weight: 600; line-height: 1.4; }
+    .type-row .body { font-size: 15px; font-weight: 400; line-height: 1.6; }
+    .type-row .small { font-size: 13px; font-weight: 400; color: var(--text-muted); line-height: 1.5; }
+    .type-row .caption { font-size: 11px; font-weight: 500; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; }
 
     /* ===== Color Palette ===== */
     .palette-grid {
@@ -513,6 +645,560 @@
       color: var(--accent-primary);
     }
 
+    /* ===== LMS Palette Section ===== */
+    .lms-palette {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .lms-group {
+      min-width: 0;
+    }
+
+    .lms-group-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .lms-group-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .lms-group-header h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-main);
+    }
+
+    .lms-swatch {
+      display: flex;
+      align-items: stretch;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+      transition: all var(--transition);
+    }
+
+    .lms-swatch:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-primary);
+    }
+
+    .lms-swatch-color {
+      width: 52px;
+      flex-shrink: 0;
+      transition: background var(--transition);
+    }
+
+    .lms-swatch-info {
+      flex: 1;
+      padding: 10px 14px;
+      background: var(--bg-surface);
+      min-width: 0;
+    }
+
+    .lms-swatch-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .lms-swatch-var {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lms-swatch-hex {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+
+    .lms-swatch-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1100px) {
+      .lms-palette {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .lms-palette {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Brand Design Systems (Klasio & Dub) ===== */
+    .brand-comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .brand-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-primary);
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .brand-logo-klasio {
+      background: #2651EB;
+      color: #FFFFFF;
+    }
+
+    .brand-logo-dub {
+      background: #0A0A0A;
+      color: #FFFFFF;
+      border: 1px solid #262626;
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .brand-domain {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .brand-badge {
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-klasio {
+      background: #ECF5FD;
+      color: #2651EB;
+      border: 1px solid #D2EEE7;
+    }
+    [data-theme="dark"] .badge-klasio {
+      background: rgba(38, 81, 235, 0.15);
+      color: #18F5EA;
+      border-color: rgba(24, 245, 234, 0.3);
+    }
+
+    .badge-dub {
+      background: #F5F5F5;
+      color: #0A0A0A;
+      border: 1px solid #E5E5E5;
+    }
+    [data-theme="dark"] .badge-dub {
+      background: #171717;
+      color: #EDEDED;
+      border-color: #333333;
+    }
+
+    .brand-sub-heading {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin: 24px 0 12px;
+    }
+
+    /* Font stack pills */
+    .font-stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .font-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .font-pill-role {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    /* Mini component showcase */
+    .brand-preview-box {
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-top: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .klasio-box {
+      background: #ECF5FD;
+      border-color: #D2EEE7;
+      color: #25262B;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .dub-box {
+      background: #FAFAFA;
+      border-color: #E5E5E5;
+      color: #0A0A0A;
+      font-family: 'Inter', sans-serif;
+    }
+    [data-theme="dark"] .klasio-box {
+      background: #073265;
+      border-color: #243CE3;
+      color: #FFFFFF;
+    }
+    [data-theme="dark"] .dub-box {
+      background: #0A0A0A;
+      border-color: #262626;
+      color: #EDEDED;
+    }
+
+    /* Color Swatch Grid Compact */
+    .color-swatch-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 8px;
+    }
+
+    .mini-swatch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border);
+    }
+
+    .mini-swatch-color {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .mini-swatch-details {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .mini-swatch-name {
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text-main);
+    }
+
+    .mini-swatch-hex {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: 'Geist Mono', monospace;
+    }
+
+    @media (max-width: 960px) {
+      .brand-comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Role-Based Portal Systems (Instructor & Student) ===== */
+    .portal-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 32px;
+    }
+
+    .portal-header-bar {
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-canvas);
+    }
+
+    .portal-title-group h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .portal-title-group p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .portal-role-badge {
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .portal-role-instructor {
+      background: #EEF2FF;
+      color: #4F46E5;
+      border: 1px solid #C7D2FE;
+    }
+    [data-theme="dark"] .portal-role-instructor {
+      background: rgba(79, 70, 229, 0.2);
+      color: #818CF8;
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .portal-role-student {
+      background: #F0F9FF;
+      color: #0284C7;
+      border: 1px solid #BAE6FD;
+    }
+    [data-theme="dark"] .portal-role-student {
+      background: rgba(2, 132, 199, 0.2);
+      color: #38BDF8;
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    /* Sidebar + Content App Shell Mockup */
+    .portal-app-shell {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 480px;
+    }
+
+    .portal-sidebar {
+      padding: 24px 16px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .instructor-sidebar {
+      background: #0F172A;
+      color: #F8FAFC;
+    }
+
+    .student-sidebar {
+      background: #0284C7;
+      color: #FFFFFF;
+    }
+
+    .sidebar-brand {
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding: 0 8px;
+    }
+
+    .sidebar-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .instructor-sidebar .sidebar-item {
+      color: #94A3B8;
+    }
+    .instructor-sidebar .sidebar-item.active,
+    .instructor-sidebar .sidebar-item:hover {
+      background: #1E293B;
+      color: #EEF2FF;
+    }
+    .instructor-sidebar .sidebar-item.active {
+      border-left: 3px solid #6366F1;
+    }
+
+    .student-sidebar .sidebar-item {
+      color: #BAE6FD;
+    }
+    .student-sidebar .sidebar-item.active,
+    .student-sidebar .sidebar-item:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+    }
+    .student-sidebar .sidebar-item.active {
+      border-left: 3px solid #34D399;
+    }
+
+    .sidebar-footer {
+      padding: 12px 8px;
+      font-size: 11px;
+      opacity: 0.7;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .portal-main-area {
+      padding: 28px;
+      background: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .portal-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .portal-card {
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border: 1px solid var(--border);
+      background: var(--bg-canvas);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition);
+    }
+
+    .portal-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .portal-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .portal-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .portal-card-value {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 8px 0;
+      color: var(--text-main);
+    }
+
+    .portal-card-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .portal-card-footer {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    @media (max-width: 1024px) {
+      .portal-app-shell {
+        grid-template-columns: 1fr;
+      }
+      .portal-sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .portal-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ===== Responsive ===== */
     @media (max-width: 640px) {
       .container {
@@ -573,41 +1259,124 @@
 
     <div class="divider"></div>
 
-    <!-- Typography Section -->
+    <!-- Typography Comparison Section -->
     <section>
-      <p class="section-label">Typography</p>
-      <h2 class="section-title">Inter — Type Scale</h2>
-      <p class="section-desc">A clean, geometric sans-serif optimized for screens. Every weight from light to black.</p>
+      <p class="section-label">Typography Comparison</p>
+      <h2 class="section-title">Font Face Comparison</h2>
+      <p class="section-desc">Five premium sans-serif typefaces side by side — compare character shapes, weight rendering, and paragraph readability.</p>
 
-      <div class="type-showcase">
-        <div class="type-row">
-          <span class="type-sample h1">Display Heading</span>
-          <span class="type-meta">48px / 800</span>
+      <div class="type-comparison">
+
+        <!-- Column 1: Inter -->
+        <div class="type-column font-inter">
+          <div class="type-column-header">
+            <h3 style="font-family:'Inter',sans-serif">Inter</h3>
+            <span class="font-tag font-tag--inter">Currently Active</span>
+            <p>Geometric, neutral, optimized for UI screens.</p>
+          </div>
+          <div class="type-showcase">
+            <div class="type-row"><span class="type-sample h1">Display</span><span class="type-meta">36 / 800</span></div>
+            <div class="type-row"><span class="type-sample h2">Section</span><span class="type-meta">28 / 700</span></div>
+            <div class="type-row"><span class="type-sample h3">Card Title</span><span class="type-meta">22 / 600</span></div>
+            <div class="type-row"><span class="type-sample h4">Subsection</span><span class="type-meta">17 / 600</span></div>
+            <div class="type-row"><span class="type-sample body">Body text with comfortable line-height.</span><span class="type-meta">15 / 400</span></div>
+            <div class="type-row"><span class="type-sample small">Small supporting text.</span><span class="type-meta">13 / 400</span></div>
+            <div class="type-row"><span class="type-sample caption">Caption Label</span><span class="type-meta">11 / 500</span></div>
+          </div>
+          <div class="para-card">
+            <h4>Why Inter Works</h4>
+            <p>Inter was crafted specifically for computer screens, with tall x-height and open apertures for maximum legibility. Its neutral character makes it a safe choice for developer portfolios where clarity matters most.</p>
+          </div>
         </div>
-        <div class="type-row">
-          <span class="type-sample h2">Section Heading</span>
-          <span class="type-meta">36px / 700</span>
+
+        <!-- Column 2: Plus Jakarta Sans -->
+        <div class="type-column font-jakarta">
+          <div class="type-column-header">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif">Plus Jakarta Sans</h3>
+            <span class="font-tag font-tag--jakarta">Candidate</span>
+            <p>Elegant geometric with softer curves.</p>
+          </div>
+          <div class="type-showcase">
+            <div class="type-row"><span class="type-sample h1">Display</span><span class="type-meta">36 / 800</span></div>
+            <div class="type-row"><span class="type-sample h2">Section</span><span class="type-meta">28 / 700</span></div>
+            <div class="type-row"><span class="type-sample h3">Card Title</span><span class="type-meta">22 / 600</span></div>
+            <div class="type-row"><span class="type-sample h4">Subsection</span><span class="type-meta">17 / 600</span></div>
+            <div class="type-row"><span class="type-sample body">Body text with comfortable line-height.</span><span class="type-meta">15 / 400</span></div>
+            <div class="type-row"><span class="type-sample small">Small supporting text.</span><span class="type-meta">13 / 400</span></div>
+            <div class="type-row"><span class="type-sample caption">Caption Label</span><span class="type-meta">11 / 500</span></div>
+          </div>
+          <div class="para-card">
+            <h4>Why Jakarta Works</h4>
+            <p>Jakarta Sans brings warmth and personality with its distinctive letterforms and slightly rounded edges. It feels premium and polished — ideal for creative portfolios that want to stand out while staying professional.</p>
+          </div>
         </div>
-        <div class="type-row">
-          <span class="type-sample h3">Card Title</span>
-          <span class="type-meta">24px / 600</span>
+
+        <!-- Column 3: Nunito Sans -->
+        <div class="type-column font-nunito">
+          <div class="type-column-header">
+            <h3 style="font-family:'Nunito Sans',sans-serif">Nunito Sans</h3>
+            <span class="font-tag font-tag--nunito">Candidate</span>
+            <p>Friendly, rounded terminals, great readability.</p>
+          </div>
+          <div class="type-showcase">
+            <div class="type-row"><span class="type-sample h1">Display</span><span class="type-meta">36 / 800</span></div>
+            <div class="type-row"><span class="type-sample h2">Section</span><span class="type-meta">28 / 700</span></div>
+            <div class="type-row"><span class="type-sample h3">Card Title</span><span class="type-meta">22 / 600</span></div>
+            <div class="type-row"><span class="type-sample h4">Subsection</span><span class="type-meta">17 / 600</span></div>
+            <div class="type-row"><span class="type-sample body">Body text with comfortable line-height.</span><span class="type-meta">15 / 400</span></div>
+            <div class="type-row"><span class="type-sample small">Small supporting text.</span><span class="type-meta">13 / 400</span></div>
+            <div class="type-row"><span class="type-sample caption">Caption Label</span><span class="type-meta">11 / 500</span></div>
+          </div>
+          <div class="para-card">
+            <h4>Why Nunito Works</h4>
+            <p>Nunito Sans has a gentle, approachable personality thanks to its rounded terminals. It feels welcoming without sacrificing professionalism — a great pick if you want your portfolio to feel human and inviting.</p>
+          </div>
         </div>
-        <div class="type-row">
-          <span class="type-sample h4">Subsection Title</span>
-          <span class="type-meta">18px / 600</span>
+
+        <!-- Column 4: General Sans -->
+        <div class="type-column font-general">
+          <div class="type-column-header">
+            <h3 style="font-family:'General Sans',sans-serif">General Sans</h3>
+            <span class="font-tag font-tag--general">Candidate</span>
+            <p>Clean Swiss-style with sharp geometry.</p>
+          </div>
+          <div class="type-showcase">
+            <div class="type-row"><span class="type-sample h1">Display</span><span class="type-meta">36 / 700</span></div>
+            <div class="type-row"><span class="type-sample h2">Section</span><span class="type-meta">28 / 700</span></div>
+            <div class="type-row"><span class="type-sample h3">Card Title</span><span class="type-meta">22 / 600</span></div>
+            <div class="type-row"><span class="type-sample h4">Subsection</span><span class="type-meta">17 / 600</span></div>
+            <div class="type-row"><span class="type-sample body">Body text with comfortable line-height.</span><span class="type-meta">15 / 400</span></div>
+            <div class="type-row"><span class="type-sample small">Small supporting text.</span><span class="type-meta">13 / 400</span></div>
+            <div class="type-row"><span class="type-sample caption">Caption Label</span><span class="type-meta">11 / 500</span></div>
+          </div>
+          <div class="para-card">
+            <h4>Why General Sans Works</h4>
+            <p>General Sans blends Swiss precision with modern warmth. Its clean geometry and sharp cuts give it a trendy, startup-ready vibe — perfect for portfolios aiming for that minimal, confident Vercel-style aesthetic.</p>
+          </div>
         </div>
-        <div class="type-row">
-          <span class="type-sample body">Body text renders here with comfortable reading line-height.</span>
-          <span class="type-meta">16px / 400</span>
+
+        <!-- Column 5: Satoshi -->
+        <div class="type-column font-satoshi">
+          <div class="type-column-header">
+            <h3 style="font-family:'Satoshi',sans-serif">Satoshi</h3>
+            <span class="font-tag font-tag--satoshi">Candidate</span>
+            <p>Modern humanist, balanced and versatile.</p>
+          </div>
+          <div class="type-showcase">
+            <div class="type-row"><span class="type-sample h1">Display</span><span class="type-meta">36 / 900</span></div>
+            <div class="type-row"><span class="type-sample h2">Section</span><span class="type-meta">28 / 700</span></div>
+            <div class="type-row"><span class="type-sample h3">Card Title</span><span class="type-meta">22 / 700</span></div>
+            <div class="type-row"><span class="type-sample h4">Subsection</span><span class="type-meta">17 / 500</span></div>
+            <div class="type-row"><span class="type-sample body">Body text with comfortable line-height.</span><span class="type-meta">15 / 400</span></div>
+            <div class="type-row"><span class="type-sample small">Small supporting text.</span><span class="type-meta">13 / 400</span></div>
+            <div class="type-row"><span class="type-sample caption">Caption Label</span><span class="type-meta">11 / 500</span></div>
+          </div>
+          <div class="para-card">
+            <h4>Why Satoshi Works</h4>
+            <p>Satoshi strikes a rare balance between geometric precision and humanist warmth. Its distinctive character shapes feel contemporary and refined — making it a standout choice for portfolios that want a unique typographic identity.</p>
+          </div>
         </div>
-        <div class="type-row">
-          <span class="type-sample small">Small text for descriptions and supporting content.</span>
-          <span class="type-meta">14px / 400</span>
-        </div>
-        <div class="type-row">
-          <span class="type-sample caption">Caption / Label Text</span>
-          <span class="type-meta">12px / 500</span>
-        </div>
+
       </div>
     </section>
 
@@ -621,6 +1390,520 @@
 
       <div class="palette-grid" id="paletteGrid">
         <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- LMS Color Palette Section -->
+    <section>
+      <p class="section-label">LMS Design Tokens</p>
+      <h2 class="section-title">Core LMS Palette</h2>
+      <p class="section-desc">A purpose-built color system for learning management — organized by function with clear usage guidelines.</p>
+
+      <div class="lms-palette">
+
+        <!-- Group 1: Core Brand -->
+        <div class="lms-group">
+          <div class="lms-group-header">
+            <span class="lms-group-dot" style="background:#2563eb"></span>
+            <h4>Core Brand</h4>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#2563eb"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$primary</span>
+                <span class="lms-swatch-hex">#2563EB</span>
+              </div>
+              <div class="lms-swatch-desc">Main brand color, active links, primary action buttons</div>
+            </div>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#1d4ed8"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$primary-dark</span>
+                <span class="lms-swatch-hex">#1D4ED8</span>
+              </div>
+              <div class="lms-swatch-desc">Hover states and emphasized interactive elements</div>
+            </div>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#475569"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$secondary</span>
+                <span class="lms-swatch-hex">#475569</span>
+              </div>
+              <div class="lms-swatch-desc">Subheadings, secondary buttons, minor metadata</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2: Background & Neutrals -->
+        <div class="lms-group">
+          <div class="lms-group-header">
+            <span class="lms-group-dot" style="background:#e2e8f0"></span>
+            <h4>Background & Neutrals</h4>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#f8fafc"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$bg-canvas</span>
+                <span class="lms-swatch-hex">#F8FAFC</span>
+              </div>
+              <div class="lms-swatch-desc">Main page background for dashboard layouts</div>
+            </div>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#ffffff; border-right:1px solid #e2e8f0"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$bg-surface</span>
+                <span class="lms-swatch-hex">#FFFFFF</span>
+              </div>
+              <div class="lms-swatch-desc">Card, sidebar, and course module containers</div>
+            </div>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#e2e8f0"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$border-color</span>
+                <span class="lms-swatch-hex">#E2E8F0</span>
+              </div>
+              <div class="lms-swatch-desc">Subtle dividers, tables, and card outlines</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 3: Text & Typography -->
+        <div class="lms-group">
+          <div class="lms-group-header">
+            <span class="lms-group-dot" style="background:#0f172a"></span>
+            <h4>Text & Typography</h4>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#0f172a"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$text-main</span>
+                <span class="lms-swatch-hex">#0F172A</span>
+              </div>
+              <div class="lms-swatch-desc">High-contrast primary reading text (WCAG AA)</div>
+            </div>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#64748b"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$text-muted</span>
+                <span class="lms-swatch-hex">#64748B</span>
+              </div>
+              <div class="lms-swatch-desc">Secondary descriptions, dates, breadcrumbs</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 4: Status & Feedback -->
+        <div class="lms-group">
+          <div class="lms-group-header">
+            <span class="lms-group-dot" style="background:linear-gradient(135deg,#16a34a,#d97706,#dc2626);border-radius:50%"></span>
+            <h4>Status & Feedback</h4>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#16a34a"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$success</span>
+                <span class="lms-swatch-hex">#16A34A</span>
+              </div>
+              <div class="lms-swatch-desc">Completed assignments and passing grades</div>
+            </div>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#d97706"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$warning</span>
+                <span class="lms-swatch-hex">#D97706</span>
+              </div>
+              <div class="lms-swatch-desc">Pending tasks and approaching deadlines</div>
+            </div>
+          </div>
+          <div class="lms-swatch">
+            <div class="lms-swatch-color" style="background:#dc2626"></div>
+            <div class="lms-swatch-info">
+              <div class="lms-swatch-top">
+                <span class="lms-swatch-var">$danger</span>
+                <span class="lms-swatch-hex">#DC2626</span>
+              </div>
+              <div class="lms-swatch-desc">Overdue items and error alerts</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Brand Design Systems Section (Klasio & Dub) -->
+    <section>
+      <p class="section-label">Brand Identity Systems</p>
+      <h2 class="section-title">Klasio & Dub Design Systems</h2>
+      <p class="section-desc">Comprehensive breakdown of typography, color tokens, surface hierarchy, and component previews for Klasio.com and Dub.co.</p>
+
+      <div class="brand-comparison-grid">
+
+        <!-- Klasio.com Brand Card -->
+        <div class="brand-card">
+          <div class="brand-header">
+            <div class="brand-header-left">
+              <div class="brand-logo-icon brand-logo-klasio">K</div>
+              <div>
+                <h3 class="brand-title">Klasio</h3>
+                <span class="brand-domain">klasio.com</span>
+              </div>
+            </div>
+            <span class="brand-badge badge-klasio">EdTech & LMS</span>
+          </div>
+
+          <!-- Typography Stack -->
+          <div class="brand-sub-heading">Typography Hierarchy</div>
+          <div class="font-stack-list">
+            <span class="font-pill" style="font-family:'Plus Jakarta Sans', sans-serif">
+              Plus Jakarta Sans <span class="font-pill-role">Primary UI</span>
+            </span>
+            <span class="font-pill" style="font-family:'Inter', sans-serif">
+              Inter <span class="font-pill-role">Secondary</span>
+            </span>
+            <span class="font-pill" style="font-family:Arial, sans-serif">
+              Arial <span class="font-pill-role">Fallback</span>
+            </span>
+          </div>
+
+          <!-- Color Tokens Breakdown -->
+          <div class="brand-sub-heading">Brand Primary & Accents</div>
+          <div class="color-swatch-list">
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#2651EB"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Royal Blue</span>
+                <span class="mini-swatch-hex">#2651EB</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#073265"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Navy Deep</span>
+                <span class="mini-swatch-hex">#073265</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#243CE3"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Blue Variant</span>
+                <span class="mini-swatch-hex">#243CE3</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#18F5EA"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Cyan Teal</span>
+                <span class="mini-swatch-hex">#18F5EA</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#D2EEE7"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Mint Tint</span>
+                <span class="mini-swatch-hex">#D2EEE7</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#EBE0FF"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Lavender</span>
+                <span class="mini-swatch-hex">#EBE0FF</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="brand-sub-heading">Text Hierarchy</div>
+          <div class="color-swatch-list">
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#25262B"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Headings</span>
+                <span class="mini-swatch-hex">#25262B</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#25252D"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Text Dark</span>
+                <span class="mini-swatch-hex">#25252D</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#67686B"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Dominant Body</span>
+                <span class="mini-swatch-hex">#67686B</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#B6B7C0"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Faint Meta</span>
+                <span class="mini-swatch-hex">#B6B7C0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="brand-sub-heading">Surfaces & Containers</div>
+          <div class="color-swatch-list">
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#FFFFFF; border:1px solid #ccc"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">White Card</span>
+                <span class="mini-swatch-hex">#FFFFFF</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#FAFAFA"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Base Surface</span>
+                <span class="mini-swatch-hex">#FAFAFA</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#ECF5FD"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Blue Tint 1</span>
+                <span class="mini-swatch-hex">#ECF5FD</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#F1F7FD"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Blue Tint 2</span>
+                <span class="mini-swatch-hex">#F1F7FD</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#000000"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Dark Mode</span>
+                <span class="mini-swatch-hex">#000000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Component Showcase -->
+          <div class="brand-preview-box klasio-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px">
+              <span style="font-size:11px; font-weight:700; background:#EBE0FF; color:#2651EB; padding:3px 8px; border-radius:4px">Course Module</span>
+              <span style="font-size:11px; font-weight:600; background:#D2EEE7; color:#073265; padding:3px 8px; border-radius:4px">Mint Active</span>
+            </div>
+            <h4 style="font-family:'Plus Jakarta Sans', sans-serif; font-size:16px; font-weight:800; color:#25262B; margin-bottom:6px">Interactive Learning System</h4>
+            <p style="font-family:'Plus Jakarta Sans', sans-serif; font-size:13px; color:#67686B; line-height:1.5; margin-bottom:14px">
+              Designed with Royal Blue (<code style="font-family:monospace; background:rgba(38,81,235,0.08); color:#2651EB; padding:1px 4px; border-radius:3px">#2651EB</code>) action triggers and light blue surface tints.
+            </p>
+            <div style="display:flex; gap:8px">
+              <button style="font-family:'Plus Jakarta Sans', sans-serif; font-size:12px; font-weight:700; background:#2651EB; color:#FFFFFF; border:none; padding:8px 16px; border-radius:6px; cursor:pointer">Start Lesson</button>
+              <button style="font-family:'Plus Jakarta Sans', sans-serif; font-size:12px; font-weight:600; background:#18F5EA; color:#073265; border:none; padding:8px 16px; border-radius:6px; cursor:pointer">Cyan Accent</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dub.co Brand Card -->
+        <div class="brand-card">
+          <div class="brand-header">
+            <div class="brand-header-left">
+              <div class="brand-logo-icon brand-logo-dub">D</div>
+              <div>
+                <h3 class="brand-title">Dub.co</h3>
+                <span class="brand-domain">dub.co</span>
+              </div>
+            </div>
+            <span class="brand-badge badge-dub">Link Management</span>
+          </div>
+
+          <!-- Typography Stack -->
+          <div class="brand-sub-heading">Typography Hierarchy</div>
+          <div class="font-stack-list">
+            <span class="font-pill" style="font-family:'Satoshi', sans-serif">
+              Satoshi <span class="font-pill-role">Display / Hero</span>
+            </span>
+            <span class="font-pill" style="font-family:'Inter', sans-serif">
+              Inter <span class="font-pill-role">Primary UI</span>
+            </span>
+            <span class="font-pill" style="font-family:'Geist Mono', monospace">
+              Geist Mono <span class="font-pill-role">Code & Metrics</span>
+            </span>
+          </div>
+
+          <!-- Color Tokens Breakdown -->
+          <div class="brand-sub-heading">Brand Primary & Blue Accents</div>
+          <div class="color-swatch-list">
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#2563EB"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Brand Blue</span>
+                <span class="mini-swatch-hex">#2563EB</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#3B82F6"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Blue Light</span>
+                <span class="mini-swatch-hex">#3B82F6</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="brand-sub-heading">Neutral Grayscale Palette</div>
+          <div class="color-swatch-list">
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#0A0A0A"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Near Black</span>
+                <span class="mini-swatch-hex">#0A0A0A</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#171717"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Gray 900</span>
+                <span class="mini-swatch-hex">#171717</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#262626"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Gray 800</span>
+                <span class="mini-swatch-hex">#262626</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#404040"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Gray 700</span>
+                <span class="mini-swatch-hex">#404040</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#525252"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Gray 600</span>
+                <span class="mini-swatch-hex">#525252</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#737373"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Muted Gray</span>
+                <span class="mini-swatch-hex">#737373</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#E5E5E5"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Border Light</span>
+                <span class="mini-swatch-hex">#E5E5E5</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#D4D4D4"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Border Dark</span>
+                <span class="mini-swatch-hex">#D4D4D4</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="brand-sub-heading">Surfaces & Status Tints</div>
+          <div class="color-swatch-list">
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#FFFFFF; border:1px solid #ccc"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Surface Main</span>
+                <span class="mini-swatch-hex">#FFFFFF</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#FAFAFA"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Surface Light</span>
+                <span class="mini-swatch-hex">#FAFAFA</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#F5F5F5"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Surface Soft</span>
+                <span class="mini-swatch-hex">#F5F5F5</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#DCFCE7"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Success Light</span>
+                <span class="mini-swatch-hex">#DCFCE7</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#4ADE80"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Success Main</span>
+                <span class="mini-swatch-hex">#4ADE80</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#FB923C"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Orange Tint</span>
+                <span class="mini-swatch-hex">#FB923C</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#C084FC"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Purple Tint</span>
+                <span class="mini-swatch-hex">#C084FC</span>
+              </div>
+            </div>
+            <div class="mini-swatch">
+              <div class="mini-swatch-color" style="background:#D32F2F"></div>
+              <div class="mini-swatch-details">
+                <span class="mini-swatch-name">Red Danger</span>
+                <span class="mini-swatch-hex">#D32F2F</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Component Showcase -->
+          <div class="brand-preview-box dub-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px">
+              <span style="font-family:'Geist Mono', monospace; font-size:11px; font-weight:600; background:#DCFCE7; color:#166534; padding:3px 8px; border-radius:4px">dub.sh/github</span>
+              <span style="font-family:'Geist Mono', monospace; font-size:11px; font-weight:700; color:#2563EB">14,280 clicks</span>
+            </div>
+            <h4 style="font-family:'Satoshi', sans-serif; font-size:16px; font-weight:800; color:#0A0A0A; margin-bottom:6px">Short Links for Modern Infrastructure</h4>
+            <p style="font-family:'Inter', sans-serif; font-size:13px; color:#525252; line-height:1.5; margin-bottom:14px">
+              Clean grayscale base (<code style="font-family:'Geist Mono', monospace; background:#F5F5F5; color:#0A0A0A; padding:1px 4px; border-radius:3px">#0A0A0A</code>) paired with vibrant Satoshi headings and Geist Mono analytics data.
+            </p>
+            <div style="display:flex; gap:8px; align-items:center">
+              <button style="font-family:'Inter', sans-serif; font-size:12px; font-weight:600; background:#2563EB; color:#FFFFFF; border:none; padding:8px 16px; border-radius:6px; cursor:pointer">Create Link</button>
+              <span style="font-family:'Geist Mono', monospace; font-size:11px; background:#DCFCE7; color:#15803D; padding:4px 8px; border-radius:4px">200 OK</span>
+              <span style="font-family:'Geist Mono', monospace; font-size:11px; background:#FEF3C7; color:#92400E; padding:4px 8px; border-radius:4px">Pending</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -697,6 +1980,274 @@
         <button class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message</button>
       </div>
     </section>
+
+    <!-- Instructor Section -->
+    <section>
+      <p class="section-label">Role-Based System</p>
+      <h2 class="section-title">Instructor Portal Theme</h2>
+      <p class="section-desc">Designed with Deep Purple/Indigo accents, Slate/Navy Blue sidebar, and Emerald/Forest Green status tokens.</p>
+
+      <div class="portal-container">
+        <!-- Header -->
+        <div class="portal-header-bar">
+          <div class="portal-title-group">
+            <h3>Instructor Dashboard</h3>
+            <p>Course analytics, student performance, and grading control panel</p>
+          </div>
+          <span class="portal-role-badge portal-role-instructor">Instructor View</span>
+        </div>
+
+        <!-- Sidebar + Shell -->
+        <div class="portal-app-shell">
+          <!-- Sidebar -->
+          <div class="portal-sidebar instructor-sidebar">
+            <div>
+              <div class="sidebar-brand">
+                <span style="background:#4F46E5; width:28px; height:28px; border-radius:6px; display:inline-flex; align-items:center; justify-content:center; color:#FFF; font-size:14px; font-weight:800">I</span>
+                Instructor Studio
+              </div>
+              <div class="sidebar-menu">
+                <div class="sidebar-item active">📊 Dashboard</div>
+                <div class="sidebar-item">📚 Course Management</div>
+                <div class="sidebar-item">📝 Assignments</div>
+                <div class="sidebar-item">📈 Analytics</div>
+                <div class="sidebar-item">💬 Student Messages</div>
+              </div>
+            </div>
+            <div class="sidebar-footer">
+              Logged in as Prof. Anderson
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class="portal-main-area">
+            <!-- Cards Grid -->
+            <div class="portal-cards-grid">
+              <!-- Card 1: Deep Purple/Indigo -->
+              <div class="portal-card" style="border-top:3px solid #4F46E5">
+                <div class="portal-card-header">
+                  <span class="portal-card-title">Active Courses</span>
+                  <span style="background:#EEF2FF; color:#4F46E5; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700">INDIGO</span>
+                </div>
+                <div class="portal-card-value" style="color:#4F46E5">12 Modules</div>
+                <div class="portal-card-desc">485 enrolled students across all tracks</div>
+                <div class="portal-card-footer">
+                  <span style="color:#6366F1; font-weight:600">Primary Focus</span>
+                  <span style="color:var(--text-muted)">#4F46E5</span>
+                </div>
+              </div>
+
+              <!-- Card 2: Slate/Navy Blue -->
+              <div class="portal-card" style="border-top:3px solid #0F172A">
+                <div class="portal-card-header">
+                  <span class="portal-card-title">Pending Submissions</span>
+                  <span style="background:#F1F5F9; color:#0F172A; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700">NAVY</span>
+                </div>
+                <div class="portal-card-value" style="color:#0F172A">34 Papers</div>
+                <div class="portal-card-desc">Requires review before deadline</div>
+                <div class="portal-card-footer">
+                  <span style="color:#334155; font-weight:600">Sidebar Base</span>
+                  <span style="color:var(--text-muted)">#0F172A</span>
+                </div>
+              </div>
+
+              <!-- Card 3: Emerald/Forest Green -->
+              <div class="portal-card" style="border-top:3px solid #059669">
+                <div class="portal-card-header">
+                  <span class="portal-card-title">Completion Rate</span>
+                  <span style="background:#ECFDF5; color:#059669; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700">EMERALD</span>
+                </div>
+                <div class="portal-card-value" style="color:#059669">94.2%</div>
+                <div class="portal-card-desc">+4.5% improvement this semester</div>
+                <div class="portal-card-footer">
+                  <span style="color:#047857; font-weight:600">Success State</span>
+                  <span style="color:var(--text-muted)">#059669</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Color Swatches Row -->
+            <div>
+              <div class="brand-sub-heading" style="margin-top:0">Instructor Palette Tokens</div>
+              <div class="color-swatch-list">
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#4F46E5"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Deep Purple</span>
+                    <span class="mini-swatch-hex">#4F46E5</span>
+                  </div>
+                </div>
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#3730A3"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Indigo Dark</span>
+                    <span class="mini-swatch-hex">#3730A3</span>
+                  </div>
+                </div>
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#0F172A"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Slate Navy</span>
+                    <span class="mini-swatch-hex">#0F172A</span>
+                  </div>
+                </div>
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#059669"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Emerald</span>
+                    <span class="mini-swatch-hex">#059669</span>
+                  </div>
+                </div>
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#047857"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Forest Green</span>
+                    <span class="mini-swatch-hex">#047857</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Student Section -->
+    <section>
+      <p class="section-label">Role-Based System</p>
+      <h2 class="section-title">Student Portal Theme</h2>
+      <p class="section-desc">Designed with Sky Blue/Azure primary base, Mint/Soft Green progress indicators, and Vibrant Coral/Muted Orange alert tokens.</p>
+
+      <div class="portal-container">
+        <!-- Header -->
+        <div class="portal-header-bar">
+          <div class="portal-title-group">
+            <h3>Student Learning Hub</h3>
+            <p>Track your assignments, upcoming deadlines, and course completion progress</p>
+          </div>
+          <span class="portal-role-badge portal-role-student">Student View</span>
+        </div>
+
+        <!-- Sidebar + Shell -->
+        <div class="portal-app-shell">
+          <!-- Sidebar -->
+          <div class="portal-sidebar student-sidebar">
+            <div>
+              <div class="sidebar-brand">
+                <span style="background:#FFFFFF; width:28px; height:28px; border-radius:6px; display:inline-flex; align-items:center; justify-content:center; color:#0284C7; font-size:14px; font-weight:800">S</span>
+                Student Portal
+              </div>
+              <div class="sidebar-menu">
+                <div class="sidebar-item active">📖 My Courses</div>
+                <div class="sidebar-item">🎯 Study Schedule</div>
+                <div class="sidebar-item">🏆 Certificates</div>
+                <div class="sidebar-item">📁 Project Files</div>
+                <div class="sidebar-item">⚙️ Account Settings</div>
+              </div>
+            </div>
+            <div class="sidebar-footer">
+              Enrolled: Web Development 2026
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class="portal-main-area">
+            <!-- Cards Grid -->
+            <div class="portal-cards-grid">
+              <!-- Card 1: Sky Blue / Azure -->
+              <div class="portal-card" style="border-top:3px solid #0284C7">
+                <div class="portal-card-header">
+                  <span class="portal-card-title">Enrolled Courses</span>
+                  <span style="background:#F0F9FF; color:#0284C7; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700">AZURE</span>
+                </div>
+                <div class="portal-card-value" style="color:#0284C7">6 Active</div>
+                <div class="portal-card-desc">Current semester learning track</div>
+                <div class="portal-card-footer">
+                  <span style="color:#0EA5E9; font-weight:600">Brand Base</span>
+                  <span style="color:var(--text-muted)">#0284C7</span>
+                </div>
+              </div>
+
+              <!-- Card 2: Mint / Soft Green -->
+              <div class="portal-card" style="border-top:3px solid #10B981">
+                <div class="portal-card-header">
+                  <span class="portal-card-title">Completed Lessons</span>
+                  <span style="background:#D1FAE5; color:#065F46; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700">MINT</span>
+                </div>
+                <div class="portal-card-value" style="color:#10B981">28 / 32</div>
+                <div class="portal-card-desc">87.5% syllabus completed</div>
+                <div class="portal-card-footer">
+                  <span style="color:#34D399; font-weight:600">Progress Token</span>
+                  <span style="color:var(--text-muted)">#10B981</span>
+                </div>
+              </div>
+
+              <!-- Card 3: Vibrant Coral / Muted Orange -->
+              <div class="portal-card" style="border-top:3px solid #F97316">
+                <div class="portal-card-header">
+                  <span class="portal-card-title">Due Tomorrow</span>
+                  <span style="background:#FFF7ED; color:#C2410C; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700">CORAL</span>
+                </div>
+                <div class="portal-card-value" style="color:#F97316">2 Quizzes</div>
+                <div class="portal-card-desc">React Hooks & State Management</div>
+                <div class="portal-card-footer">
+                  <span style="color:#FB923C; font-weight:600">Urgent Alert</span>
+                  <span style="color:var(--text-muted)">#F97316</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Color Swatches Row -->
+            <div>
+              <div class="brand-sub-heading" style="margin-top:0">Student Palette Tokens</div>
+              <div class="color-swatch-list">
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#0284C7"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Sky Blue</span>
+                    <span class="mini-swatch-hex">#0284C7</span>
+                  </div>
+                </div>
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#0EA5E9"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Azure Light</span>
+                    <span class="mini-swatch-hex">#0EA5E9</span>
+                  </div>
+                </div>
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#10B981"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Mint Green</span>
+                    <span class="mini-swatch-hex">#10B981</span>
+                  </div>
+                </div>
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#F97316"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Vibrant Coral</span>
+                    <span class="mini-swatch-hex">#F97316</span>
+                  </div>
+                </div>
+                <div class="mini-swatch">
+                  <div class="mini-swatch-color" style="background:#FB923C"></div>
+                  <div class="mini-swatch-details">
+                    <span class="mini-swatch-name">Muted Orange</span>
+                    <span class="mini-swatch-hex">#FB923C</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
 
     <!-- Footer -->
     <div class="preview-footer">
